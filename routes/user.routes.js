@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
 const { existenteEmail, existeUsuarioById} = require('../helpers/db-validators');
 
-const { usuariosPost, usuariosGet, getUsuarioByid, usuariosPut, usuariosDelete } = require('../controllers/user.controller');
+const { usuariosPost, usuariosGet, getUsuarioByid, usuariosPut, usuariosDelete, usuariosLogin } = require('../controllers/user.controller');
 
 const router = Router();
 
@@ -44,5 +44,7 @@ router.post(
         check("correo").custom(existenteEmail),
         validarCampos,
     ], usuariosPost); 
+
+    router.patch( "/", usuariosLogin );
 
 module.exports = router;

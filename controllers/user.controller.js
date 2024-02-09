@@ -61,10 +61,29 @@ const usuariosPost = async (req, res) =>{
     });
 }
 
+const usuariosLogin = async (req, res) =>{
+    const { Correo, password } = req.body;
+
+    bcryptjs.compare(password, usuario.password).then((result) => {
+
+        if(result === true){
+            res.status(200).json({
+                msg: 'Bienvenido'
+            });
+        }else{
+            res.status(200).json({
+                msg: 'Password equivocado o inexistentes'
+            });
+        }
+
+    });
+}
+
 module.exports = {
     usuariosDelete,
     usuariosPost,
     usuariosGet,
     getUsuarioByid,
-    usuariosPut
+    usuariosPut,
+    usuariosLogin
 }

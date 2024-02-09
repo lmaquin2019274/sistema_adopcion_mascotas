@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Perros",
+    "dateExported": "2024-02-09T16:46:41.587Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "09be16fa-cf5c-47dd-9c08-23738c93cdb6",
+            "colId": "04bfc6ee-1083-4f59-a339-ab3cb46e615f",
+            "containerId": "",
+            "name": "perrosPost",
+            "url": "http://localhost:3000/api/perros",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-09T16:07:34.747Z",
+            "modified": "2024-02-09T16:45:18.359Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"roky\",\n  \"especie\":\"perro\",\n  \"raza\":\"pitbull\",\n  \"edad\":\"5 meses\",\n  \"dueño\":\"Don Luis\",\n  \"telefono_dueño\":\"555-8124\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1777b793-3ec9-485e-a1cf-666b6927c0f2",
+            "colId": "04bfc6ee-1083-4f59-a339-ab3cb46e615f",
+            "containerId": "",
+            "name": "perrosGet",
+            "url": "http://localhost:3000/api/perros",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-09T16:25:40.548Z",
+            "modified": "2024-02-09T16:25:54.055Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e7ed27f4-e5f4-4b43-a803-f1e52b391de9",
+            "colId": "04bfc6ee-1083-4f59-a339-ab3cb46e615f",
+            "containerId": "",
+            "name": "getPerroById",
+            "url": "http://localhost:3000/api/perros/65c653438942971e85ccb332",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-09T16:33:35.182Z",
+            "modified": "2024-02-09T16:33:54.827Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ff7b45e7-62fa-4e1b-9acf-2ca251216808",
+            "colId": "04bfc6ee-1083-4f59-a339-ab3cb46e615f",
+            "containerId": "",
+            "name": "perrosPut",
+            "url": "http://localhost:3000/api/perros/65c653438942971e85ccb332",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-09T16:35:06.360Z",
+            "modified": "2024-02-09T16:37:37.810Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"el pelusa\",\n  \"edad\":\"2 años\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0dd99982-7eba-4cf5-b8f5-11b83820d4ff",
+            "colId": "04bfc6ee-1083-4f59-a339-ab3cb46e615f",
+            "containerId": "",
+            "name": "perrosDelete",
+            "url": "http://localhost:3000/api/perros/65c655018942971e85ccb33d",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-02-09T16:38:52.370Z",
+            "modified": "2024-02-09T16:39:26.732Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
