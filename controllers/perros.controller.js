@@ -49,7 +49,7 @@ const perrosDelete = async (req, res) => {
 }
 
 const perrosPost = async (req, res) =>{
-    const { nombre, especie, raza, edad } = req.body;
+    const { nombre, especie, raza, edad, dueño, telefono_dueño } = req.body;
     const perro = new Perros({nombre, especie, raza, edad, dueño, telefono_dueño});
 
     await perro.save();

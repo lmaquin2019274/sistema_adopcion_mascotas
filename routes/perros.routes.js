@@ -2,47 +2,48 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 
 const { validarCampos } = require('../middlewares/validar-campos');
-const { existenteEmail, existeUsuarioById} = require('../helpers/db-validators');
+const { existenteTelefono, existePerroById } = require('../helpers/db-validators');
 
-const { usuariosPost, usuariosGet, getUsuarioByid, usuariosPut, usuariosDelete } = require('../controllers/user.controller');
+const { perrosPost, perrosGet, getPerrosByid, perrosPut, perrosDelete } = require('../controllers/perros.controller');
 
 const router = Router();
 
-router.get("/", usuariosGet);
+router.get("/", perrosGet);
 
 router.get(
     "/:id",
     [
-        check("id","El id no es un formato válido de MongoDB").isMongoId(),
-        check("id").custom(existeUsuarioById),
+        check("id", "El id no es un formato válido de MongoDB").isMongoId(),
+        check("id").custom(existePerroById),
         validarCampos
-    ], getUsuarioByid);
+    ], getPerrosByid);
 
 router.put(
     "/:id",
     [
-        check("id","El id no es un formato válido de MongoDB").isMongoId(),
-        check("id").custom(existeUsuarioById),
+        check("id", "El id no es un formato válido de MongoDB").isMongoId(),
+        check("id").custom(existePerroById),
         validarCampos
-    ], usuariosPut);
+    ], perrosPut);
 
 router.delete(
-        "/:id",
-        [
-            check("id","El id no es un formato válido de MongoDB").isMongoId(),
-            check("id").custom(existeUsuarioById),
-            validarCampos
-        ], usuariosDelete);
-
-        
-router.post(
-    "/", 
+    "/:id",
     [
-        check("nombre","El nombre es obligatorio").not().isEmpty(),
-        check("password","El password debe tener más de 6 letras").isLength({min: 6,}),
-        check("correo","El correo debe ser un correo").isEmail(),
-        check("correo").custom(existenteEmail),
+        check("id", "El id no es un formato válido de MongoDB").isMongoId(),
+        check("id").custom(existePerroById),
+        validarCampos
+    ], perrosDelete);
+
+
+router.post(
+    "/",
+    [
+        check("nombre", "El nombre es obligatorio").not().isEmpty(),
+        check("especie", "La espiece es obligatorio").not().isEmpty(),
+        check("dueño", "El nombre del dueño es obligatorio").not().isEmpty(),
+        check("telefono_dueño", "El teléfono del dueño es obligatorio").not().isEmpty(),
+        check("telefono_dueño").custom(existenteTelefono),
         validarCampos,
-    ], usuariosPost); 
+    ], perrosPost);
 
 module.exports = router;
