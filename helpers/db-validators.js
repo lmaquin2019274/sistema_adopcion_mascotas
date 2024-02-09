@@ -1,4 +1,5 @@
 const Usuario = require('../models/usuario');
+const Perros = require('../models/perros')
 
 const existenteEmail = async (correo = '') => {
     const existeEmail = await Usuario.findOne({correo});
@@ -14,7 +15,23 @@ const existeUsuarioById = async ( id = '') => {
     }
 }
 
+const existenteTelefono = async (telefono_dueño = '') => {
+    const existeTelefono = await Perros.findOne({telefono_dueño});
+    if(existeTelefono){
+        throw new Error(`El telefono del dueño ${ telefono_dueño } ya fue registrado`);
+    }
+}
+
+const existePerroById = async ( id = '') => {
+    const existePerro = await Perros.findOne({id});
+    if(existePerro){
+        throw new Error(`La mascota con el id: ${ id } no existe`);
+    }
+}
+
 module.exports = {
     existenteEmail,
-    existeUsuarioById
+    existeUsuarioById,
+    existenteTelefono,
+    existePerroById
 }
